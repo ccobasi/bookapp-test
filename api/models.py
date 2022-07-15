@@ -14,7 +14,7 @@ class Book(models.Model):
     name = models.TextField()
     isbn = models.TextField()
     author = models.ForeignKey(
-        Author, related_name="authors", on_delete=models.CASCADE)
+        Author, related_name="books", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
