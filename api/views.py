@@ -15,6 +15,13 @@ class BookList(APIView):
         return Response(serializer.data)
 
 
+class AuthorList(APIView):
+    def get(self, request, format=None):
+        authors = Author.objects.all()
+        serializer = AuthorSerializer(authors, many=True)
+        return Response(serializer.data)
+
+
 @api_view(['GET'])
 def getBook(request, pk):
     books = Book.objects.get(id=pk)

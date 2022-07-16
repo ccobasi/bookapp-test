@@ -16,12 +16,12 @@ class BookSerializer(serializers.ModelSerializer):
 
 
 class AuthorSerializer(serializers.ModelSerializer):
-    books = BookSerializer(many=True)
+    # books = BookSerializer(many=True)
 
     class Meta:
         model = Author
         fields = (
             "id",
             "first_name",
-            "second_name",
+            "last_name",
         )
