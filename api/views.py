@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -14,17 +14,18 @@ class BookList(APIView):
         return Response(serializer.data)
 
 
-# class BookDetail(APIView):
-#     def get_object(self, author, name):
-#         try:
-#             return Book.objects.filter(category__slug=category_slug).get(slug=Book_slug)
-#         except Book.DoesNotExist:
-#             raise Http404
+class BookDetail(APIView):
+    def get_object(self, id):
+        try:
+            return Book.objects.filter(book_id=id)
+        except Book.DoesNotExist:
+            raise Http404
 
-#     def get(self, request, category_slug, Book_slug, format=None):
-#         Book = self.get_object(category_slug, Book_slug)
-#         serializer = BookSerializer(Book)
-#         return Response(serializer.data)
+    def get(self, request, book_id, format=None):
+        Book = self.get_object(book_id)
+        serializer = BookSerializer(Book)
+        return Response(serializer.data)
+
 
 # class CategoryDetail(APIView):
 #     def get_object(self, category_slug):
