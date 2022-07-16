@@ -35,6 +35,28 @@ def getAuthor(request, pk):
     serializer = AuthorSerializer(authors, many=False)
     return Response(serializer.data)
 
+
+@api_view(['PUT'])
+def updateAuthor(request, pk):
+    data = request.data
+    author = Author.objects.get(id=pk)
+    serializer = AuthorSerializer(instance=author, data=data)
+
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)
+
+
+@api_view(['PUT'])
+def updateBook(request, pk):
+    data = request.data
+    book = Book.objects.get(id=pk)
+    serializer = BookSerializer(instance=book, data=data)
+
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)
+
 # class CategoryDetail(APIView):
 #     def get_object(self, category_slug):
 #         try:
