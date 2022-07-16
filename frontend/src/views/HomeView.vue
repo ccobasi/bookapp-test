@@ -7,7 +7,7 @@
   </section>
   <div class="columns is-multiline">
     <div class="column is-12">
-      <h2 class="is-size-2 has-text-centered">List Books</h2>
+      <h2 class="is-size-2 has-text-centered">List of Books</h2>
     </div>
 
     <div
@@ -20,7 +20,12 @@
         <h3 class="is-size-4">{{ book.name }}</h3>
         <p class="is-size-6 has-text-grey">{{ book.author }}</p>
 
-        View Details
+        <router-view
+          v-bind:to="book.get_absolute_url"
+          class="button is-primary mt-4"
+        >
+          View Details
+        </router-view>
       </div>
     </div>
   </div>

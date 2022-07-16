@@ -5,6 +5,7 @@ from rest_framework.decorators import api_view
 
 from .models import Book, Author
 from .serializers import BookSerializer, AuthorSerializer
+from api import serializers
 
 
 class BookList(APIView):
@@ -14,18 +15,11 @@ class BookList(APIView):
         return Response(serializer.data)
 
 
-class BookDetail(APIView):
-    def get_object(self, id):
-        try:
-            return Book.objects.filter(book_id=id)
-        except Book.DoesNotExist:
-            raise Http404
-
-    def get(self, request, book_id, format=None):
-        Book = self.get_object(book_id)
-        serializer = BookSerializer(Book)
-        return Response(serializer.data)
-
+@api_view(['GET'])
+def getBook(request, pk):
+    books = Book.objects.get(id=pk)
+    serializer = BookSerializer(books, many=False)
+    return Response(serializer.data)
 
 # class CategoryDetail(APIView):
 #     def get_object(self, category_slug):
