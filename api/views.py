@@ -28,6 +28,13 @@ def getBook(request, pk):
     serializer = BookSerializer(books, many=False)
     return Response(serializer.data)
 
+
+@api_view(['GET'])
+def getAuthor(request, pk):
+    authors = Author.objects.get(id=pk)
+    serializer = AuthorSerializer(authors, many=False)
+    return Response(serializer.data)
+
 # class CategoryDetail(APIView):
 #     def get_object(self, category_slug):
 #         try:
