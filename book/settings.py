@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-(3cf+qq(ryr&57b=1+u#d!j40)j647nfgf-%w!dia-4zqj9tsx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['http://127.0.0.1:8000/api/v1/book-lists/','https://bookapp-waje.herokuapp.com/']
 
 
 # Application definition
@@ -129,7 +129,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS =( os.path.join(BASE_DIR, 'static'))
+STATICFILES_DIRS =( os.path.join(BASE_DIR, 'static'),)
 django_heroku.settings(locals())
 
 # Default primary key field type
