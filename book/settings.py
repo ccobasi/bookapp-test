@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(3cf+qq(ryr&57b=1+u#d!j40)j647nfgf-%w!dia-4zqj9tsx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['http://127.0.0.1:8000/api/v1/book-lists/','https://bookapp-waje.herokuapp.com/']
 
