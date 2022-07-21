@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-(3cf+qq(ryr&57b=1+u#d!j40)j647nfgf-%w!dia-4zqj9tsx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['http://127.0.0.1:8000/api/v1/book-lists/','https://bookapp-waje.herokuapp.com/']
 
 
 # Application definition
@@ -130,3 +130,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import django_on_heroku
+django_on_heroku.settings(locals())
