@@ -48,7 +48,6 @@ INSTALLED_APPS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8080",
     "https://62da1b52f3b2db39ad015ff5--frabjous-crumble-5a9701.netlify.app/",
 ]
 MIDDLEWARE = [
