@@ -1,4 +1,5 @@
 <template>
+<div>
   <nav class="navbar is-dark">
     <div class="nav-brand">
       <router-link to="/" class="navbar-item"
@@ -50,9 +51,14 @@
     </div>
   </nav>
   <div>
-    <router-view />
+    <section class="section">
+      <router-view />
+    </section>
+    <footer class="footer">
+      <p class="has-text-centered">Copyright (c) 2022</p>
+    </footer>
   </div>
-  <router-view />
+</div>
 </template>
 
 <style lang="scss">
